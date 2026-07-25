@@ -6,20 +6,21 @@
 <title>Draft Day Info | Made In Strongsville</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
 <nav class="site-nav">
   <div class="wrap">
-    <a href="index.html" class="brand">MADE IN <span>STRONGSVILLE</span></a>
+    <a href="index.html" class="brand"><i class="fa-solid fa-shield-halved"></i>MADE IN <span>STRONGSVILLE</span></a>
     <ul class="navlinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="draft.html" class="active">Draft Day Info</a></li>
-      <li><a href="members.html">League Members</a></li>
-      <li><a href="hall-of-fame.html">Hall of Fame</a></li>
-      <li><a href="polls.html">Polls</a></li>
-      <li><a href="rules.html">Rules</a></li>
+      <li><a href="index.html"><i class="fa-solid fa-house"></i>Home</a></li>
+      <li><a href="draft.html" class="active"><i class="fa-solid fa-calendar-days"></i>Draft Day Info</a></li>
+      <li><a href="members.html"><i class="fa-solid fa-users"></i>League Members</a></li>
+      <li><a href="hall-of-fame.html"><i class="fa-solid fa-trophy"></i>Hall of Fame</a></li>
+      <li><a href="polls.html"><i class="fa-solid fa-square-poll-vertical"></i>Polls</a></li>
+      <li><a href="rules.html"><i class="fa-solid fa-scroll"></i>Rules</a></li>
     </ul>
     <button class="navtoggle" aria-label="Menu">☰</button>
   </div>
@@ -49,21 +50,21 @@
     <div class="info-grid reveal">
 
       <div class="info-card">
-        <div class="icon-label">Where We're Staying</div>
+        <div class="icon-label"><i class="fa-solid fa-location-dot"></i>Where We're Staying</div>
         <h3>Location</h3>
         <span class="placeholder-tag">Placeholder — TBD</span>
         <p>Address and host details go here once locked in. (e.g. "The Kowalski cabin, Strongsville, OH — details in the group chat.")</p>
       </div>
 
       <div class="info-card">
-        <div class="icon-label">League Dues</div>
+        <div class="icon-label"><i class="fa-solid fa-sack-dollar"></i>League Dues</div>
         <h3>Buy-In</h3>
         <div class="big">$125</div>
         <p>Per person, due before the draft. Venmo / Zelle details to be added here.</p>
       </div>
 
       <div class="info-card">
-        <div class="icon-label">Prize Pool</div>
+        <div class="icon-label"><i class="fa-solid fa-money-bill-trend-up"></i>Prize Pool</div>
         <h3>Payouts</h3>
         <span class="placeholder-tag">Placeholder — TBD</span>
         <p>1st place, 2nd place, and any bonus payouts (highest points, toilet bowl, etc.) go here once finalized. There's an open poll on the <a href="polls.html" style="color:var(--gold); text-decoration:underline;">Polls page</a> about adding a 3rd place prize.</p>
@@ -92,8 +93,13 @@
 </section>
 
 <footer>
-  <span class="brand">MADE IN STRONGSVILLE</span>
+  <span class="brand"><i class="fa-solid fa-shield-halved"></i>&nbsp;MADE IN STRONGSVILLE</span>
   Built by the league, for the league. · MadeInStrongsville.com
+  <div class="foot-icons">
+    <a href="draft.html" aria-label="Draft Day Info"><i class="fa-solid fa-calendar-days"></i></a>
+    <a href="hall-of-fame.html" aria-label="Hall of Fame"><i class="fa-solid fa-trophy"></i></a>
+    <a href="polls.html" aria-label="Polls"><i class="fa-solid fa-square-poll-vertical"></i></a>
+  </div>
 </footer>
 
 <script src="assets/script.js"></script>

@@ -6,20 +6,21 @@
 <title>Polls | Made In Strongsville</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
 <nav class="site-nav">
   <div class="wrap">
-    <a href="index.html" class="brand">MADE IN <span>STRONGSVILLE</span></a>
+    <a href="index.html" class="brand"><i class="fa-solid fa-shield-halved"></i>MADE IN <span>STRONGSVILLE</span></a>
     <ul class="navlinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="draft.html">Draft Day Info</a></li>
-      <li><a href="members.html">League Members</a></li>
-      <li><a href="hall-of-fame.html">Hall of Fame</a></li>
-      <li><a href="polls.html" class="active">Polls</a></li>
-      <li><a href="rules.html">Rules</a></li>
+      <li><a href="index.html"><i class="fa-solid fa-house"></i>Home</a></li>
+      <li><a href="draft.html"><i class="fa-solid fa-calendar-days"></i>Draft Day Info</a></li>
+      <li><a href="members.html"><i class="fa-solid fa-users"></i>League Members</a></li>
+      <li><a href="hall-of-fame.html"><i class="fa-solid fa-trophy"></i>Hall of Fame</a></li>
+      <li><a href="polls.html" class="active"><i class="fa-solid fa-square-poll-vertical"></i>Polls</a></li>
+      <li><a href="rules.html"><i class="fa-solid fa-scroll"></i>Rules</a></li>
     </ul>
     <button class="navtoggle" aria-label="Menu">☰</button>
   </div>
@@ -46,8 +47,13 @@
 </section>
 
 <footer>
-  <span class="brand">MADE IN STRONGSVILLE</span>
+  <span class="brand"><i class="fa-solid fa-shield-halved"></i>&nbsp;MADE IN STRONGSVILLE</span>
   Built by the league, for the league. · MadeInStrongsville.com
+  <div class="foot-icons">
+    <a href="draft.html" aria-label="Draft Day Info"><i class="fa-solid fa-calendar-days"></i></a>
+    <a href="hall-of-fame.html" aria-label="Hall of Fame"><i class="fa-solid fa-trophy"></i></a>
+    <a href="polls.html" aria-label="Polls"><i class="fa-solid fa-square-poll-vertical"></i></a>
+  </div>
 </footer>
 
 <script src="assets/data.js"></script>
@@ -59,16 +65,17 @@ function renderPolls(filter){
   const items = filter === 'All' ? POLLS : POLLS.filter(p=>p.cat===filter);
   items.forEach(p=>{
     const maxPct = Math.max(...p.options.map(o=>o[1]||0));
+    const catClass = p.cat === 'Draft' ? 'cat-draft' : (p.cat === 'General' ? 'cat-general' : '');
     const card = document.createElement('div');
-    card.className = 'poll-card reveal in';
+    card.className = `poll-card reveal in ${catClass}`;
     card.innerHTML = `
       <div class="poll-head">
         <div>
           <span class="poll-cat">${p.cat}</span>
           <h3>${p.q}</h3>
-          <div class="poll-date">${p.date}</div>
+          <div class="poll-date"><i class="fa-regular fa-clock"></i> ${p.date}</div>
         </div>
-        <div class="poll-status ${p.status}">${p.status === 'open' ? '● Voting Open' : '✓ Closed'}</div>
+        <div class="poll-status ${p.status}">${p.status === 'open' ? 'Voting Open' : '<i class="fa-solid fa-check"></i> Closed'}</div>
       </div>
       ${p.options.map(([label,pct])=>`
         <div class="poll-option ${pct===maxPct && p.status==='closed' ? 'winner' : ''}">

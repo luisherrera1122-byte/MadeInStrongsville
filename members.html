@@ -6,20 +6,21 @@
 <title>League Members | Made In Strongsville</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
 <nav class="site-nav">
   <div class="wrap">
-    <a href="index.html" class="brand">MADE IN <span>STRONGSVILLE</span></a>
+    <a href="index.html" class="brand"><i class="fa-solid fa-shield-halved"></i>MADE IN <span>STRONGSVILLE</span></a>
     <ul class="navlinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="draft.html">Draft Day Info</a></li>
-      <li><a href="members.html" class="active">League Members</a></li>
-      <li><a href="hall-of-fame.html">Hall of Fame</a></li>
-      <li><a href="polls.html">Polls</a></li>
-      <li><a href="rules.html">Rules</a></li>
+      <li><a href="index.html"><i class="fa-solid fa-house"></i>Home</a></li>
+      <li><a href="draft.html"><i class="fa-solid fa-calendar-days"></i>Draft Day Info</a></li>
+      <li><a href="members.html" class="active"><i class="fa-solid fa-users"></i>League Members</a></li>
+      <li><a href="hall-of-fame.html"><i class="fa-solid fa-trophy"></i>Hall of Fame</a></li>
+      <li><a href="polls.html"><i class="fa-solid fa-square-poll-vertical"></i>Polls</a></li>
+      <li><a href="rules.html"><i class="fa-solid fa-scroll"></i>Rules</a></li>
     </ul>
     <button class="navtoggle" aria-label="Menu">☰</button>
   </div>
@@ -40,21 +41,28 @@
 </section>
 
 <footer>
-  <span class="brand">MADE IN STRONGSVILLE</span>
+  <span class="brand"><i class="fa-solid fa-shield-halved"></i>&nbsp;MADE IN STRONGSVILLE</span>
   Built by the league, for the league. · MadeInStrongsville.com
+  <div class="foot-icons">
+    <a href="draft.html" aria-label="Draft Day Info"><i class="fa-solid fa-calendar-days"></i></a>
+    <a href="hall-of-fame.html" aria-label="Hall of Fame"><i class="fa-solid fa-trophy"></i></a>
+    <a href="polls.html" aria-label="Polls"><i class="fa-solid fa-square-poll-vertical"></i></a>
+  </div>
 </footer>
 
 <script src="assets/data.js"></script>
 <script>
+const ACCENTS = ['#c9a24b','#5b9bd5','#b3273b','#3e8a6c','#c9a24b','#5b9bd5','#b3273b','#3e8a6c','#c9a24b','#5b9bd5','#b3273b','#3e8a6c'];
 const grid = document.getElementById('rosterGrid');
-ROSTER.forEach(m=>{
+ROSTER.forEach((m,i)=>{
   const card = document.createElement('article');
   card.className = 'mcard reveal';
+  card.style.setProperty('--accent', ACCENTS[i % ACCENTS.length]);
   card.tabIndex = 0;
   card.innerHTML = `
     <div class="top">
       <div class="num">${m.no}</div>
-      <div class="nickname">"${m.nickname}"</div>
+      <div class="nickname"><i class="fa-solid fa-star" style="font-size:9px; margin-right:5px;"></i>"${m.nickname}"</div>
       <h3>${m.name}</h3>
     </div>
     <div class="statline">
@@ -64,11 +72,12 @@ ROSTER.forEach(m=>{
     </div>
     <p style="padding:0 24px 18px; color:var(--muted); font-size:14px;">${m.tagline}</p>
     <div class="story"><div class="story-inner">${m.story}</div></div>
-    <div class="expand-cue">▸ Full story</div>
+    <div class="expand-cue"><i class="fa-solid fa-caret-right"></i> Full story</div>
   `;
   const toggle = ()=>{
     card.classList.toggle('open');
-    card.querySelector('.expand-cue').textContent = card.classList.contains('open') ? '▾ Collapse' : '▸ Full story';
+    const open = card.classList.contains('open');
+    card.querySelector('.expand-cue').innerHTML = open ? '<i class="fa-solid fa-caret-down"></i> Collapse' : '<i class="fa-solid fa-caret-right"></i> Full story';
   };
   card.addEventListener('click', toggle);
   card.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggle(); }});
