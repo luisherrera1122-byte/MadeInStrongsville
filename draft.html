@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Draft Day Info | Made In Strongsville</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="brand">MADE IN <span>STRONGSVILLE</span></a>
+    <ul class="navlinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="draft.html" class="active">Draft Day Info</a></li>
+      <li><a href="members.html">League Members</a></li>
+      <li><a href="hall-of-fame.html">Hall of Fame</a></li>
+      <li><a href="polls.html">Polls</a></li>
+      <li><a href="rules.html">Rules</a></li>
+    </ul>
+    <button class="navtoggle" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <div class="wrap">
+    <div class="eyebrow">Mark Your Calendar</div>
+    <h1>Draft Day Info</h1>
+    <p>Everything you need for Draft Weekend — where we're staying, when it starts, what it costs, and what's on the line.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Countdown</div>
+      <h2>Draft Weekend Begins</h2>
+      <p>August 20–23</p>
+    </div>
+    <div class="countdown reveal" id="countdown"></div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="info-grid reveal">
+
+      <div class="info-card">
+        <div class="icon-label">Where We're Staying</div>
+        <h3>Location</h3>
+        <span class="placeholder-tag">Placeholder — TBD</span>
+        <p>Address and host details go here once locked in. (e.g. "The Kowalski cabin, Strongsville, OH — details in the group chat.")</p>
+      </div>
+
+      <div class="info-card">
+        <div class="icon-label">League Dues</div>
+        <h3>Buy-In</h3>
+        <div class="big">$125</div>
+        <p>Per person, due before the draft. Venmo / Zelle details to be added here.</p>
+      </div>
+
+      <div class="info-card">
+        <div class="icon-label">Prize Pool</div>
+        <h3>Payouts</h3>
+        <span class="placeholder-tag">Placeholder — TBD</span>
+        <p>1st place, 2nd place, and any bonus payouts (highest points, toilet bowl, etc.) go here once finalized. There's an open poll on the <a href="polls.html" style="color:var(--gold); text-decoration:underline;">Polls page</a> about adding a 3rd place prize.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--navy-2); border-top:1px solid var(--navy-line);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Weekend Schedule</div>
+      <h2>Aug 20–23</h2>
+    </div>
+    <table class="leaderboard reveal" style="max-width:700px; margin:0 auto;">
+      <thead><tr><th>Day</th><th>Plan</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">Thu, Aug 20</td><td>Arrivals</td></tr>
+        <tr><td class="mono">Fri, Aug 21</td><td>Pre-draft hangout / mock drafts</td></tr>
+        <tr><td class="mono">Sat, Aug 22</td><td><strong>Live draft</strong> — time TBD, vote on the <a href="polls.html" style="color:var(--gold);">Polls page</a></td></tr>
+        <tr><td class="mono">Sun, Aug 23</td><td>Departures</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<footer>
+  <span class="brand">MADE IN STRONGSVILLE</span>
+  Built by the league, for the league. · MadeInStrongsville.com
+</footer>
+
+<script src="assets/script.js"></script>
+<script>
+  buildCountdown('#countdown', new Date('2026-08-20T09:00:00'));
+</script>
+</body>
+</html>

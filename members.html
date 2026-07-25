@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>League Members | Made In Strongsville</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="brand">MADE IN <span>STRONGSVILLE</span></a>
+    <ul class="navlinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="draft.html">Draft Day Info</a></li>
+      <li><a href="members.html" class="active">League Members</a></li>
+      <li><a href="hall-of-fame.html">Hall of Fame</a></li>
+      <li><a href="polls.html">Polls</a></li>
+      <li><a href="rules.html">Rules</a></li>
+    </ul>
+    <button class="navtoggle" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <div class="wrap">
+    <div class="eyebrow">The Ownership Group</div>
+    <h1>League Members</h1>
+    <p>Twelve owners, fifteen years of history. Tap a card for the full story.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="roster-grid" id="rosterGrid"></div>
+  </div>
+</section>
+
+<footer>
+  <span class="brand">MADE IN STRONGSVILLE</span>
+  Built by the league, for the league. · MadeInStrongsville.com
+</footer>
+
+<script src="assets/data.js"></script>
+<script>
+const grid = document.getElementById('rosterGrid');
+ROSTER.forEach(m=>{
+  const card = document.createElement('article');
+  card.className = 'mcard reveal';
+  card.tabIndex = 0;
+  card.innerHTML = `
+    <div class="top">
+      <div class="num">${m.no}</div>
+      <div class="nickname">"${m.nickname}"</div>
+      <h3>${m.name}</h3>
+    </div>
+    <div class="statline">
+      <div><strong>${m.years.split('–')[0]}</strong><span>Since</span></div>
+      <div><strong>${m.record}</strong><span>Record</span></div>
+      <div><strong>${m.titles}</strong><span>Titles</span></div>
+    </div>
+    <p style="padding:0 24px 18px; color:var(--muted); font-size:14px;">${m.tagline}</p>
+    <div class="story"><div class="story-inner">${m.story}</div></div>
+    <div class="expand-cue">▸ Full story</div>
+  `;
+  const toggle = ()=>{
+    card.classList.toggle('open');
+    card.querySelector('.expand-cue').textContent = card.classList.contains('open') ? '▾ Collapse' : '▸ Full story';
+  };
+  card.addEventListener('click', toggle);
+  card.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggle(); }});
+  grid.appendChild(card);
+});
+</script>
+<script src="assets/script.js"></script>
+</body>
+</html>
