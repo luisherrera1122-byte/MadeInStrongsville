@@ -29,7 +29,8 @@ This is a static site, so there's no server to store votes from every visitor. T
 ## Deploy to GitHub Pages (free hosting)
 
 1. Create a new GitHub repository (public), e.g. `made-in-strongsville`.
-2. Upload all files in this folder (`index.html`, `draft.html`, `members.html`, `hall-of-fame.html`, `polls.html`, `rules.html`, `CNAME`, and the `assets/` folder) to the root of the repo.
+2. Upload all files in this folder (`index.html`, `draft.html`, `members.html`, `hall-of-fame.html`, `polls.html`, `rules.html`, `CNAME`, `.nojekyll`, and the `assets/` folder) to the root of the repo.
+   - **Heads up on `.nojekyll`:** it's a hidden file (starts with a dot), so your computer's file browser may not show it by default (macOS: press `Cmd+Shift+.` in Finder; Windows: enable "hidden items" in File Explorer's View tab). If it doesn't come through in the upload, you can also create it directly on GitHub: in your repo, click **Add file → Create new file**, name it exactly `.nojekyll`, leave it empty, and commit. This tells GitHub Pages to skip Jekyll processing and serve your files exactly as-is.
 3. Go to **Settings → Pages**.
 4. Under **Build and deployment → Source**, choose **Deploy from a branch**, branch `main`, folder `/ (root)`. Save.
 5. Under **Custom domain**, enter `MadeInStrongsville.com` and save.
