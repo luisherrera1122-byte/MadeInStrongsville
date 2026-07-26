@@ -113,8 +113,8 @@ const LB_SACKOS = [
 // Polls — category: "League Rules" | "Draft" | "General"
 const POLLS = [
   { q:"Should playoff payouts include a 3rd place prize this year?", cat:"League Rules",
-    date:"Posted Jul 18, 2026", status:"open",
-    options:[ ["Yes, add a 3rd place payout", null], ["No, keep it top 2", null] ] },
+    date:"Closed Jul 22, 2026", status:"closed",
+    options:[ ["Yes, add a 3rd place payout", 100], ["No, keep it top 2", 0] ] },
   { q:"What time should the draft start Saturday, Aug 22?", cat:"Draft",
     date:"Posted Jul 20, 2026", status:"open",
     options:[ ["10:00 AM", null], ["12:00 PM", null], ["2:00 PM", null] ] },
