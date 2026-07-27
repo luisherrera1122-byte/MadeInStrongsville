@@ -226,7 +226,7 @@ table.leaderboard tbody tr:hover{ background:rgba(201,162,75,0.06); }
 .roster-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:20px; }
 .mcard{
   background:linear-gradient(165deg,var(--navy-2),var(--navy-3) 150%);
-  border:1px solid var(--navy-line); border-top:3px solid var(--accent, var(--gold));
+  border:1px solid var(--navy-line);
   border-radius:var(--radius);
   padding:0; overflow:hidden; cursor:pointer; transition:border-color .25s, transform .25s, box-shadow .25s;
   position:relative;
@@ -466,3 +466,29 @@ html, body{ overflow-x:hidden; max-width:100%; }
   font-family:'Oswald',sans-serif; font-size:11px; font-weight:700; color:var(--navy);
 }
 .payout-row .amount{ font-family:'JetBrains Mono',monospace; color:var(--gold-bright); font-weight:500; }
+
+/* ---------- MEMBER CARD PHOTO + head/story split ---------- */
+.mcard{ padding:0; }
+.card-head{ cursor:pointer; }
+.card-head:focus-visible{ outline:2px solid var(--accent,var(--gold)); outline-offset:-2px; }
+.mcard-photo{
+  position:relative; width:100%; aspect-ratio:4/5; overflow:hidden;
+  background:var(--navy-3);
+}
+.mcard-photo img{
+  width:100%; height:100%; object-fit:cover; object-position:top center;
+  display:block; transition:transform .4s ease;
+}
+.mcard:hover .mcard-photo img{ transform:scale(1.04); }
+.mcard-photo::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg, transparent 55%, rgba(17,22,36,0.95) 100%);
+}
+.mcard-photo::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:4px; background:var(--accent,var(--gold)); z-index:2;
+}
+.mcard .top{ border-bottom:1px solid var(--navy-line); }
+.story-video{
+  width:100%; border-radius:8px; display:block; margin-bottom:16px;
+  background:#000; border:1px solid var(--navy-line);
+}
