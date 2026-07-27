@@ -36,6 +36,7 @@
 
 <section>
   <div class="wrap">
+    <div id="champFeature"></div>
     <div class="roster-grid" id="rosterGrid"></div>
   </div>
 </section>
@@ -53,15 +54,64 @@
 <script src="data.js"></script>
 <script>
 const ACCENTS = ['#c9a24b','#5b9bd5','#b3273b','#3e8a6c','#c9a24b','#5b9bd5','#b3273b','#3e8a6c','#c9a24b','#5b9bd5','#b3273b','#3e8a6c'];
-const grid = document.getElementById('rosterGrid');
-ROSTER.forEach((m,i)=>{
-  const card = document.createElement('article');
-  card.className = 'mcard reveal';
-  card.style.setProperty('--accent', ACCENTS[i % ACCENTS.length]);
 
+function buildStoryHtml(m){
   const videoHtml = m.video
     ? `<video class="story-video" controls preload="none" poster="${m.img || ''}"><source src="${m.video}" type="video/mp4"></video>`
     : '';
+  return videoHtml + m.story;
+}
+
+function attachToggle(card, head){
+  const toggle = ()=>{
+    card.classList.toggle('open');
+    const open = card.classList.contains('open');
+    head.setAttribute('aria-expanded', open);
+    head.querySelector('.expand-cue').innerHTML = open ? '<i class="fa-solid fa-caret-down"></i> Collapse' : '<i class="fa-solid fa-caret-right"></i> Full story';
+  };
+  head.addEventListener('click', toggle);
+  head.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggle(); }});
+}
+
+// --- Featured current champion banner ---
+const champ = ROSTER.find(m=>m.currentChamp);
+if(champ){
+  const feature = document.getElementById('champFeature');
+  const card = document.createElement('article');
+  card.className = 'mcard champ-feature reveal';
+  card.style.setProperty('--accent', '#c9a24b');
+  card.innerHTML = `
+    <div class="card-head" tabindex="0" role="button" aria-expanded="false">
+      <div class="champ-feature-inner">
+        <div class="mcard-photo champ-photo">
+          <div class="champ-badge"><i class="fa-solid fa-crown"></i> Current Champion</div>
+          <img src="${champ.img}" alt="${champ.name} — ${champ.nickname}" loading="lazy">
+        </div>
+        <div class="champ-info">
+          <div class="nickname"><i class="fa-solid fa-star" style="font-size:9px; margin-right:5px;"></i>"${champ.nickname}"</div>
+          <h3 style="font-size:32px;">${champ.name}</h3>
+          <p style="color:var(--muted); font-size:15px; margin:10px 0 18px;">${champ.tagline}</p>
+          <div class="statline" style="padding:0; margin-bottom:6px;">
+            <div><strong>${champ.years.split('–')[0]}</strong><span>Since</span></div>
+            <div><strong>${champ.record}</strong><span>Record</span></div>
+            <div><strong>${champ.titles}</strong><span>Titles</span></div>
+          </div>
+          <div class="expand-cue" style="padding:16px 0 0;"><i class="fa-solid fa-caret-right"></i> Full story</div>
+        </div>
+      </div>
+    </div>
+    <div class="story"><div class="story-inner">${buildStoryHtml(champ)}</div></div>
+  `;
+  attachToggle(card, card.querySelector('.card-head'));
+  feature.appendChild(card);
+}
+
+// --- Everyone else, in grid order ---
+const grid = document.getElementById('rosterGrid');
+ROSTER.filter(m=>!m.currentChamp).forEach((m,i)=>{
+  const card = document.createElement('article');
+  card.className = 'mcard reveal';
+  card.style.setProperty('--accent', ACCENTS[i % ACCENTS.length]);
 
   card.innerHTML = `
     <div class="card-head" tabindex="0" role="button" aria-expanded="false">
@@ -79,17 +129,9 @@ ROSTER.forEach((m,i)=>{
       <p style="padding:0 24px 18px; color:var(--muted); font-size:14px;">${m.tagline}</p>
       <div class="expand-cue"><i class="fa-solid fa-caret-right"></i> Full story</div>
     </div>
-    <div class="story"><div class="story-inner">${videoHtml}${m.story}</div></div>
+    <div class="story"><div class="story-inner">${buildStoryHtml(m)}</div></div>
   `;
-  const head = card.querySelector('.card-head');
-  const toggle = ()=>{
-    card.classList.toggle('open');
-    const open = card.classList.contains('open');
-    head.setAttribute('aria-expanded', open);
-    head.querySelector('.expand-cue').innerHTML = open ? '<i class="fa-solid fa-caret-down"></i> Collapse' : '<i class="fa-solid fa-caret-right"></i> Full story';
-  };
-  head.addEventListener('click', toggle);
-  head.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggle(); }});
+  attachToggle(card, card.querySelector('.card-head'));
   grid.appendChild(card);
 });
 </script>

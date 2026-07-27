@@ -492,3 +492,26 @@ html, body{ overflow-x:hidden; max-width:100%; }
   width:100%; border-radius:8px; display:block; margin-bottom:16px;
   background:#000; border:1px solid var(--navy-line);
 }
+
+/* ---------- CURRENT CHAMPION FEATURE ---------- */
+#champFeature{ margin-bottom:32px; }
+.champ-badge{
+  position:absolute; top:14px; left:14px; z-index:3;
+  display:flex; align-items:center; gap:7px;
+  background:linear-gradient(135deg,var(--gold-bright),var(--gold-dim));
+  color:var(--navy); font-family:'Oswald',sans-serif; font-weight:700;
+  font-size:12px; letter-spacing:0.06em; text-transform:uppercase;
+  padding:7px 14px; border-radius:999px;
+  box-shadow:0 6px 18px -6px rgba(201,162,75,0.6);
+}
+.champ-feature{
+  border:1px solid rgba(201,162,75,0.4);
+  box-shadow:0 0 0 1px rgba(201,162,75,0.15), var(--shadow-lg);
+}
+.champ-feature-inner{ display:flex; flex-wrap:wrap; }
+.champ-photo{ width:280px; flex:0 0 280px; aspect-ratio:auto; height:auto; align-self:stretch; }
+.champ-info{ flex:1 1 320px; padding:28px 30px; display:flex; flex-direction:column; justify-content:center; }
+@media (max-width:700px){
+  .champ-photo{ flex:0 0 auto; width:100%; aspect-ratio:16/10; }
+  .champ-info{ padding:22px 22px 26px; }
+}
