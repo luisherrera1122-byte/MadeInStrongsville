@@ -515,3 +515,80 @@ html, body{ overflow-x:hidden; max-width:100%; }
   .champ-photo{ flex:0 0 auto; width:100%; aspect-ratio:16/10; }
   .champ-info{ padding:22px 22px 26px; }
 }
+
+/* ---------- BEER CHUGS PAGE ---------- */
+.chug-empty{
+  max-width:600px; margin:0 auto; text-align:center;
+  background:linear-gradient(160deg,var(--navy-2),var(--navy-3) 150%);
+  border:1px dashed var(--navy-line); border-radius:var(--radius);
+  padding:48px 32px;
+}
+.chug-empty i{ font-size:34px; color:var(--gold); opacity:0.7; margin-bottom:16px; display:block; }
+.chug-empty h3{ font-size:19px; text-transform:none; letter-spacing:0; margin-bottom:8px; }
+.chug-empty p{ color:var(--muted); font-size:14.5px; margin:0; }
+
+.disclaimer-box{
+  display:flex; gap:14px; align-items:flex-start;
+  background:rgba(179,39,59,0.08); border:1px solid rgba(179,39,59,0.3);
+  border-radius:var(--radius); padding:18px 22px; margin-bottom:36px; max-width:900px; margin-left:auto; margin-right:auto;
+}
+.disclaimer-box i{ color:var(--crimson-bright); font-size:17px; margin-top:2px; }
+.disclaimer-box p{ margin:0; font-size:14px; color:#e0c3c8; line-height:1.55; }
+
+.chug-group{
+  background:linear-gradient(160deg,var(--navy-2),var(--navy-3) 150%);
+  border:1px solid var(--navy-line); border-radius:var(--radius);
+  margin-bottom:14px; overflow:hidden;
+}
+.chug-group-head{
+  width:100%; display:flex; align-items:center; gap:16px;
+  background:none; border:none; cursor:pointer; padding:18px 22px; text-align:left; color:var(--ink);
+}
+.chug-avatar{ width:50px; height:50px; border-radius:50%; object-fit:cover; object-position:top center; border:2px solid var(--navy-line); flex-shrink:0; }
+.chug-group-title{ flex:1; }
+.chug-group-title h3{ font-size:18px; text-transform:none; letter-spacing:0; margin:0; }
+.chug-group-title span{ font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--muted); }
+.chug-chevron{ color:var(--gold); transition:transform .3s; }
+.chug-group.open .chug-chevron{ transform:rotate(180deg); }
+.chug-group-body{
+  display:none; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:14px;
+  padding:0 22px 22px;
+}
+.chug-group.open .chug-group-body{ display:grid; }
+
+.chug-card{ text-align:center; }
+.chug-play{
+  position:relative; width:100%; aspect-ratio:9/16; border-radius:8px; overflow:hidden;
+  border:1px solid var(--navy-line); background:var(--navy-3); padding:0; cursor:pointer; display:block;
+}
+.chug-play img{ width:100%; height:100%; object-fit:cover; }
+.chug-play-icon{
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  background:rgba(8,11,20,0.35); transition:background .2s;
+}
+.chug-play-icon i{
+  width:44px; height:44px; border-radius:50%; background:rgba(201,162,75,0.9); color:var(--navy);
+  display:flex; align-items:center; justify-content:center; font-size:16px;
+}
+.chug-play:hover .chug-play-icon{ background:rgba(8,11,20,0.15); }
+.chug-title{ font-size:12px; color:var(--muted); margin-top:8px; font-family:'JetBrains Mono',monospace; }
+.chug-frame{ width:100%; aspect-ratio:9/16; border-radius:8px; overflow:hidden; border:1px solid var(--gold); }
+.chug-frame iframe{ width:100%; height:100%; border:0; }
+
+@media (max-width:600px){
+  .chug-group-body{ grid-template-columns:repeat(auto-fill,minmax(120px,1fr)); gap:10px; padding:0 16px 18px; }
+  .chug-group-head{ padding:14px 16px; }
+}
+
+/* ---------- HOMEPAGE COMMISSIONER / VIDEO SECTIONS ---------- */
+.video-placeholder{
+  max-width:760px; margin:0 auto; aspect-ratio:16/9;
+  background:linear-gradient(160deg,var(--navy-2),var(--navy-3) 150%);
+  border:1px dashed var(--navy-line); border-radius:var(--radius);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:10px;
+}
+.video-placeholder i{ font-size:32px; color:var(--gold); opacity:0.7; }
+.video-placeholder h3{ font-size:17px; text-transform:none; letter-spacing:0; margin:0; }
+.video-placeholder p{ color:var(--muted); font-size:13.5px; margin:0; max-width:40ch; }
+.video-embed-wrap{ max-width:760px; margin:0 auto; aspect-ratio:16/9; border-radius:var(--radius); overflow:hidden; border:1px solid var(--navy-line); box-shadow:var(--shadow-lg); }
+.video-embed-wrap iframe{ width:100%; height:100%; border:0; display:block; }

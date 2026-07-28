@@ -131,3 +131,63 @@ const POLLS = [
     date:"Posted Jul 10, 2026", status:"open",
     options:[ ["Stin Wirtz", null], ["Eric Arnold", null], ["Someone new entirely", null] ] },
 ];
+
+// Beer Chugs — grouped by member. id = YouTube video ID (works for both
+// youtu.be/ID and youtube.com/shorts/ID links).
+const CHUGS = [
+  { member:"Andrew Brooks", img:"photo-brooks.jpg", videos:[
+    { title:"Brooks Chug 1", id:"X9p91GaDub0" },
+    { title:"Brooks Chug 2", id:"4dWBIZRtDJ0" },
+    { title:"Brooks Chug 3", id:"92NOOTPwT8s" },
+  ]},
+  { member:"Matt Chandler", img:"photo-chandler.jpg", videos:[
+    { title:"Chandler Chug 1 – RIP Hyno", id:"ZTyR8BdRu-0" },
+  ]},
+  { member:"Eric Arnold", img:"photo-eric.jpg", videos:[
+    { title:"Eric Chug 1", id:"Y4HyhIErck8" },
+    { title:"Eric Chug 2", id:"boSy03rdzic" },
+    { title:"Eric Chug 3", id:"-9S69TySsT4" },
+    { title:"Eric Chug 4", id:"nGEdv1jjrEM" },
+  ]},
+  { member:"Gurpinder Deol", img:"photo-gurp.jpg", videos:[
+    { title:"Gurp Chug 1", id:"N-rWInFt-4U" },
+    { title:"Gurp Chug 2", id:"Wmuxh1DRE28" },
+    { title:"Gurp Chug 3", id:"55TwkaPCw7A" },
+    { title:"Gurp Chug 4", id:"-j0WdzsjtMM" },
+    { title:"Gurp Chug 5", id:"Pm-frXOPZy8" },
+  ]},
+  { member:"Matt Krause", img:"photo-krause.jpg", videos:[
+    { title:"Krause Chug 1", id:"RTnHztFwuF0" },
+    { title:"Krause Chug 2", id:"SRF9iUL-m8A" },
+    { title:"Krause Chug 3", id:"DZ7EnDTFBcg" },
+  ]},
+  { member:"Luis Herrera", img:"photo-luis.jpg", videos:[
+    { title:"Luis Chug 1", id:"HjMJJuRSxi0" },
+    { title:"Luis Chug 2", id:"Med66Oc5rnE" },
+  ]},
+  { member:"Mike Lewis", img:"photo-mike.jpg", videos:[
+    { title:"Mike Chug 1", id:"22IfdO215qs" },
+    { title:"Mike Chug 2", id:"aEyY2AUTyi4" },
+    { title:"Mike Chug 3", id:"CdN6TYMgpQ0" },
+    { title:"Mike Chug 4", id:"X1df1WgzOjw" },
+  ]},
+  { member:"Ramy Najm", img:"photo-ramy.jpg", videos:[
+    { title:"Ramy Chug 1", id:"1G3YT2NfmXs" },
+    { title:"Ramy Chug 2", id:"Yb77nkxNVsE" },
+  ]},
+  { member:"Steve Boden", img:"photo-steve.jpg", videos:[
+    { title:"Steve Chug 1", id:"pRu7UfA4WNQ" },
+    { title:"Steve Chug 2", id:"E2ChZVRZngo" },
+    { title:"Steve Chug 3", id:"9Ski7Ru64Fs" },
+    { title:"Steve Chug 4", id:"-u9JGAjLa1w" },
+  ]},
+  { member:"Stin Wirtz", img:"photo-austin.jpg", videos:[
+    { title:"Stin Chug 1", id:"bQB1TWBZlnM" },
+    { title:"Stin Chug 2", id:"8MtHzpHDKRI" },
+  ]},
+  { member:"Andrew Vargas", img:"photo-vargas.jpg", videos:[
+    { title:"Vargas Chug 1", id:"V16MD7YnF20" },
+    { title:"Vargas Chug 2", id:"NgQe15xvIyo" },
+    { title:"Vargas Chug 3", id:"_ke6m0kl39k" },
+  ]},
+];

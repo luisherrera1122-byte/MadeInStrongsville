@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beer Chugs | Made In Strongsville</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><i class="fa-solid fa-shield-halved"></i>MADE IN <span>STRONGSVILLE</span></a>
+    <ul class="navlinks">
+      <li><a href="index.html"><i class="fa-solid fa-house"></i>Home</a></li>
+      <li><a href="draft.html"><i class="fa-solid fa-calendar-days"></i>Draft Day Info</a></li>
+      <li><a href="members.html"><i class="fa-solid fa-users"></i>League Members</a></li>
+      <li><a href="hall-of-fame.html"><i class="fa-solid fa-trophy"></i>Hall of Fame</a></li>
+      <li><a href="polls.html"><i class="fa-solid fa-square-poll-vertical"></i>Polls</a></li>
+      <li><a href="rules.html"><i class="fa-solid fa-scroll"></i>Rules</a></li>
+      <li><a href="beer-chugs.html" class="active"><i class="fa-solid fa-beer-mug-empty"></i>Beer Chugs</a></li>
+    </ul>
+    <button class="navtoggle" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <div class="wrap">
+    <div class="eyebrow">The Sacred Tradition</div>
+    <h1>Beer Chugs</h1>
+    <p>The chug reel, organized by owner. Every year someone has to answer for their standings — this is the receipt.</p>
+  </div>
+</header>
+
+<section style="padding-bottom:0;">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">2026 Season</div>
+      <h2>Building Now</h2>
+    </div>
+    <div class="chug-empty reveal">
+      <i class="fa-solid fa-beer-mug-empty"></i>
+      <h3>This season's chugs go here.</h3>
+      <p>As 2026 unfolds, this section fills in — win, lose, or last place, someone's always chugging.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">The Archive</div>
+      <h2>Past Season Chugs</h2>
+    </div>
+
+    <div class="disclaimer-box reveal">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <p>Although all chugs were attempted to be added, not all chugs have been added to this page. If any chugs are missing please send them to your Commissioner.</p>
+    </div>
+
+    <div id="chugGroups"></div>
+  </div>
+</section>
+
+<footer>
+  <span class="brand"><i class="fa-solid fa-shield-halved"></i>&nbsp;MADE IN STRONGSVILLE</span>
+  Built by the league, for the league. · MadeInStrongsville.com
+  <div class="foot-icons">
+    <a href="draft.html" aria-label="Draft Day Info"><i class="fa-solid fa-calendar-days"></i></a>
+    <a href="hall-of-fame.html" aria-label="Hall of Fame"><i class="fa-solid fa-trophy"></i></a>
+    <a href="polls.html" aria-label="Polls"><i class="fa-solid fa-square-poll-vertical"></i></a>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script>
+const groupsEl = document.getElementById('chugGroups');
+
+function videoCard(v){
+  const thumb = `https://img.youtube.com/vi/${v.id}/hqdefault.jpg`;
+  const div = document.createElement('div');
+  div.className = 'chug-card';
+  div.innerHTML = `
+    <button class="chug-play" aria-label="Play ${v.title}">
+      <img src="${thumb}" alt="${v.title} thumbnail" loading="lazy">
+      <span class="chug-play-icon"><i class="fa-solid fa-play"></i></span>
+    </button>
+    <div class="chug-title">${v.title}</div>
+  `;
+  div.querySelector('.chug-play').addEventListener('click', function(){
+    const wrap = document.createElement('div');
+    wrap.className = 'chug-frame';
+    wrap.innerHTML = `<iframe src="https://www.youtube.com/embed/${v.id}?autoplay=1" title="${v.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+    this.replaceWith(wrap);
+  });
+  return div;
+}
+
+CHUGS.forEach(group=>{
+  const section = document.createElement('div');
+  section.className = 'chug-group reveal';
+  section.innerHTML = `
+    <button class="chug-group-head" aria-expanded="false">
+      <img src="${group.img}" alt="${group.member}" class="chug-avatar">
+      <div class="chug-group-title">
+        <h3>${group.member}</h3>
+        <span>${group.videos.length} chug${group.videos.length>1?'s':''} on record</span>
+      </div>
+      <i class="fa-solid fa-chevron-down chug-chevron"></i>
+    </button>
+    <div class="chug-group-body"></div>
+  `;
+  const body = section.querySelector('.chug-group-body');
+  group.videos.forEach(v=> body.appendChild(videoCard(v)));
+
+  const head = section.querySelector('.chug-group-head');
+  head.addEventListener('click', ()=>{
+    const open = section.classList.toggle('open');
+    head.setAttribute('aria-expanded', open);
+  });
+
+  groupsEl.appendChild(section);
+});
+
+// open the first group by default so the page doesn't look empty on load
+const first = groupsEl.querySelector('.chug-group');
+if(first){ first.classList.add('open'); first.querySelector('.chug-group-head').setAttribute('aria-expanded','true'); }
+</script>
+<script src="script.js"></script>
+</body>
+</html>
