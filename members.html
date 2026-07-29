@@ -31,7 +31,7 @@
   <div class="wrap">
     <div class="eyebrow">The Ownership Group</div>
     <h1>League Members</h1>
-    <p>Twelve owners, fifteen years of history. Tap a card for the full story — video coming to each one soon.</p>
+    <p>Twelve owners, fifteen years of history. Tap a card for the full story — and hit play for their AI video.</p>
   </div>
 </header>
 
@@ -57,11 +57,31 @@
 const ACCENTS = ['#c9a24b','#5b9bd5','#b3273b','#3e8a6c','#c9a24b','#5b9bd5','#b3273b','#3e8a6c','#c9a24b','#5b9bd5','#b3273b','#3e8a6c'];
 
 function buildStoryHtml(m){
-  const videoHtml = m.video
-    ? `<video class="story-video" controls preload="none" poster="${m.img || ''}"><source src="${m.video}" type="video/mp4"></video>`
-    : '';
-  return videoHtml + m.story;
+  let media = '';
+  if(m.video){
+    const thumb = `https://img.youtube.com/vi/${m.video}/hqdefault.jpg`;
+    const shape = m.videoVertical ? 'vertical' : 'horizontal';
+    media = `
+      <button class="story-video-play ${shape}" data-vid="${m.video}" data-title="${m.name} AI video" aria-label="Play ${m.name} video">
+        <img src="${thumb}" alt="${m.name} video thumbnail" loading="lazy">
+        <span class="chug-play-icon"><i class="fa-solid fa-play"></i></span>
+      </button>`;
+  }
+  return media + m.story;
 }
+
+// One delegated listener handles every story video play button on the page
+document.addEventListener('click', function(e){
+  const btn = e.target.closest('.story-video-play');
+  if(!btn) return;
+  const vid = btn.dataset.vid;
+  const title = btn.dataset.title;
+  const shape = btn.classList.contains('vertical') ? 'vertical' : 'horizontal';
+  const wrap = document.createElement('div');
+  wrap.className = `story-frame ${shape}`;
+  wrap.innerHTML = `<iframe src="https://www.youtube.com/embed/${vid}?autoplay=1" title="${title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+  btn.replaceWith(wrap);
+});
 
 function attachToggle(card, head){
   const toggle = ()=>{
