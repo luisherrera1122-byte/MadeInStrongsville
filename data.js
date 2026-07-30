@@ -62,7 +62,7 @@ const TIMELINE = [
   ["2014","Gurpinder Deol wins it all in his rookie season."],
   ["2015","Andrew Vargas completes a worst-to-first title run."],
   ["2016","Don Ricardo claims his first championship."],
-  ["2017","Don Ricardo posts the worst season in league history: 1-12."],
+  ["2017","Eric Arnold wins his first championship. Don Ricardo, meanwhile, posts the worst season in league history: 1-12."],
   ["2018","Andrew Brooks wins championship No. 2."],
   ["2019","Matt Chandler wins his first title. Mike Lewis begins a three-year stretch in last place."],
   ["2020","Andrew Brooks wins championship No. 3."],

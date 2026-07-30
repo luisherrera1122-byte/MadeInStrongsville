@@ -145,12 +145,22 @@
 <script>
 const raftersEl = document.getElementById('rafters');
 TIMELINE.forEach(([year, desc])=>{
-  const champMatch = desc.match(/^([A-Za-z .]+?) (wins|claims|posts)/);
+  const champMatch = desc.match(/^([A-Za-z .]+?) (wins|claims|posts|completes)/);
   const champ = champMatch ? champMatch[1] : desc;
-  const isCollapse = desc.includes("worst season");
+  // Detect a *separate* collapse mention (a different person's worst-season note within the same year)
+  const collapseMatch = desc.match(/(?:^|\.\s+)([A-Z][a-z]+(?:\s[A-Z][a-z]+)*)(?:,? meanwhile,?)? posts the worst season in league history:\s*([\d-]+)/);
+  const soleCollapse = collapseMatch && collapseMatch[1].trim() === champ.trim();
+
   const b = document.createElement('div');
-  b.className = 'banner' + (isCollapse ? ' collapse' : '');
-  b.innerHTML = `<div class="yr">${year}</div><i class="fa-solid ${isCollapse ? 'fa-skull' : 'fa-trophy'}"></i><div class="champ">${isCollapse ? "1-12" : champ}</div><div class="tag">${isCollapse ? "Worst Season Ever" : "Champion"}</div>`;
+  b.className = 'banner' + (soleCollapse ? ' collapse' : '');
+  if(soleCollapse){
+    b.innerHTML = `<div class="yr">${year}</div><i class="fa-solid fa-skull"></i><div class="champ">${collapseMatch[2]}</div><div class="tag">Worst Season Ever</div>`;
+  } else {
+    const noteHtml = (collapseMatch && !soleCollapse)
+      ? `<div class="banner-note"><i class="fa-solid fa-triangle-exclamation"></i> ${collapseMatch[1].trim()}: ${collapseMatch[2]}</div>`
+      : '';
+    b.innerHTML = `<div class="yr">${year}</div><i class="fa-solid fa-trophy"></i><div class="champ">${champ}</div><div class="tag">Champion</div>${noteHtml}`;
+  }
   raftersEl.appendChild(b);
 });
 </script>

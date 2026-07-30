@@ -198,6 +198,11 @@ section{ padding:96px 0; position:relative; }
 .banner i{ color:var(--gold); font-size:20px; margin:10px 0 6px; display:block; }
 .banner .champ{ font-family:'Oswald',sans-serif; font-size:15px; margin:4px 0 4px; line-height:1.2; }
 .banner .tag{ font-size:10px; color:var(--gold); text-transform:uppercase; letter-spacing:0.06em; }
+.banner-note{
+  margin-top:10px; padding-top:10px; border-top:1px dashed rgba(179,39,59,0.35);
+  font-size:9.5px; color:#e08a95; line-height:1.35;
+}
+.banner-note i{ color:var(--crimson-bright); margin-right:3px; }
 .banner.collapse{ border-top-color:var(--crimson); }
 .banner.collapse i, .banner.collapse .tag{ color:var(--crimson-bright); }
 
