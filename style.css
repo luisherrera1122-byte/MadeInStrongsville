@@ -244,7 +244,7 @@ table.leaderboard tbody tr:hover{ background:rgba(201,162,75,0.06); }
 .mcard .statline div strong{ display:block; font-family:'Oswald',sans-serif; font-size:19px; }
 .mcard .statline div span{ font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); }
 .mcard .story{ max-height:0; overflow:hidden; transition:max-height .4s ease; }
-.mcard.open .story{ max-height:420px; }
+.mcard.open .story{ max-height:1400px; }
 .mcard .story-inner{ padding:4px 24px 24px; color:#c7cbd6; font-size:14px; border-top:1px solid var(--navy-line); margin-top:2px; padding-top:16px; }
 .mcard .expand-cue{ padding:0 24px 20px; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--accent,var(--gold)); letter-spacing:0.08em; display:flex; align-items:center; gap:6px; }
 
@@ -610,3 +610,42 @@ html, body{ overflow-x:hidden; max-width:100%; }
 .video-placeholder p{ color:var(--muted); font-size:13.5px; margin:0; max-width:40ch; }
 .video-embed-wrap{ max-width:760px; margin:0 auto; aspect-ratio:16/9; border-radius:var(--radius); overflow:hidden; border:1px solid var(--navy-line); box-shadow:var(--shadow-lg); }
 .video-embed-wrap iframe{ width:100%; height:100%; border:0; display:block; }
+
+/* ---------- FEATURE IMAGE (Hall of Champions banner) ---------- */
+.feature-image{
+  width:100%; max-width:1140px; margin:0 auto;
+  border-radius:var(--radius); overflow:hidden;
+  border:1px solid rgba(201,162,75,0.3);
+  box-shadow:var(--shadow-lg);
+  position:relative;
+}
+.feature-image img{ width:100%; display:block; }
+.feature-image .feature-tag{
+  position:absolute; top:16px; left:16px;
+  background:rgba(8,11,20,0.75); border:1px solid var(--gold);
+  color:var(--gold-bright); font-family:'JetBrains Mono',monospace;
+  font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
+  padding:6px 12px; border-radius:6px;
+}
+.feature-caption{ text-align:center; color:var(--muted); font-size:13.5px; margin-top:16px; }
+
+/* ---------- LINEUP VISUAL (Rules page) ---------- */
+.lineup-wrap{ margin-top:16px; }
+.lineup-label{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
+.lineup-grid{ display:flex; flex-wrap:wrap; gap:10px; margin-bottom:22px; }
+.lineup-slot{
+  width:88px; height:88px; border-radius:10px;
+  background:linear-gradient(160deg,var(--navy-2),var(--navy-3) 150%);
+  border:1px solid var(--navy-line); border-top:3px solid var(--gold);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:4px;
+}
+.lineup-slot .pos{ font-family:'Oswald',sans-serif; font-size:19px; font-weight:700; color:var(--ink); }
+.lineup-slot .sub{ font-size:8.5px; letter-spacing:0.04em; color:var(--muted); margin-top:3px; line-height:1.2; }
+.lineup-slot.bench{ border-top-color:var(--navy-4); }
+.lineup-slot.bench .pos{ color:var(--muted); font-size:14px; }
+@media (max-width:600px){
+  .lineup-slot{ width:72px; height:72px; }
+  .lineup-slot .pos{ font-size:16px; }
+}
+
+.poll-voters{ font-size:11.5px; color:var(--muted); margin-top:6px; line-height:1.5; }

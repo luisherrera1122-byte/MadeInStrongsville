@@ -112,24 +112,12 @@ const LB_SACKOS = [
 
 // Polls — category: "League Rules" | "Draft" | "General"
 const POLLS = [
-  { q:"Should playoff payouts include a 3rd place prize this year?", cat:"League Rules",
-    date:"Closed Jul 22, 2026", status:"closed",
-    options:[ ["Yes, add a 3rd place payout", 100], ["No, keep it top 2", 0] ] },
-  { q:"What time should the draft start Saturday, Aug 22?", cat:"Draft",
-    date:"Posted Jul 20, 2026", status:"open",
-    options:[ ["10:00 AM", null], ["12:00 PM", null], ["2:00 PM", null] ] },
-  { q:"Should we switch to full PPR scoring next season?", cat:"League Rules",
-    date:"Closed Jan 14, 2026", status:"closed",
-    options:[ ["Yes, full PPR", 67], ["No, keep half-PPR", 33] ] },
-  { q:"Snake draft or auction draft for 2026?", cat:"Draft",
-    date:"Closed Jun 2, 2026", status:"closed",
-    options:[ ["Snake draft", 75], ["Auction draft", 25] ] },
-  { q:"Funniest team name in league history?", cat:"General",
-    date:"Closed Mar 9, 2026", status:"closed",
-    options:[ ["\u201COff Consistently\u201D — Brooks, 2024", 41], ["\u201CDON RICARDO\u201D — Don, 2017", 34], ["\u201CStinky\u201D — Steve, 2022", 25] ] },
-  { q:"Who's most likely to finish last in 2026?", cat:"General",
-    date:"Posted Jul 10, 2026", status:"open",
-    options:[ ["Stin Wirtz", null], ["Eric Arnold", null], ["Someone new entirely", null] ] },
+  { q:"Should we remove one of the two flex spots?", cat:"League Rules",
+    date:"Closed Jul 18, 2026", status:"closed", initiatedBy:"Steve Boden",
+    options:[
+      ["Yes, remove one flex spot", 82, ["Don Ricardo","Eric Arnold","Matt Krause","Matt Chandler","Luis Herrera","Andrew Brooks","Steve Boden","Andrew Vargas","Ramy Najm"]],
+      ["No, keep both flex spots", 18, ["Mike Lewis","Stin Wirtz"]],
+    ] },
 ];
 
 // Beer Chugs — grouped by member. id = YouTube video ID (works for both

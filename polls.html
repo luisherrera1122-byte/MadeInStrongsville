@@ -74,14 +74,15 @@ function renderPolls(filter){
         <div>
           <span class="poll-cat">${p.cat}</span>
           <h3>${p.q}</h3>
-          <div class="poll-date"><i class="fa-regular fa-clock"></i> ${p.date}</div>
+          <div class="poll-date"><i class="fa-regular fa-clock"></i> ${p.date}${p.initiatedBy ? ` · Initiated by ${p.initiatedBy}` : ''}</div>
         </div>
         <div class="poll-status ${p.status}">${p.status === 'open' ? 'Voting Open' : '<i class="fa-solid fa-check"></i> Closed'}</div>
       </div>
-      ${p.options.map(([label,pct])=>`
+      ${p.options.map(([label,pct,voters])=>`
         <div class="poll-option ${pct===maxPct && p.status==='closed' ? 'winner' : ''}">
           <div class="row"><span>${label}</span><span class="mono">${pct!==null ? pct+'%' : ''}</span></div>
           ${pct!==null ? `<div class="bar-track"><div class="bar-fill" style="width:${pct}%;"></div></div>` : ''}
+          ${voters && voters.length ? `<div class="poll-voters">${voters.join(', ')}</div>` : ''}
         </div>
       `).join('')}
       ${p.status==='open' ? `<p style="margin-top:16px; font-size:13px; color:var(--muted);">Cast your vote in the group chat — results post here once voting closes.</p>` : ''}
