@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /home.html
+Disallow: /draft.html
+Disallow: /members.html
+Disallow: /hall-of-fame.html
+Disallow: /polls.html
+Disallow: /rules.html
+Disallow: /beer-chugs.html
+Allow: /index.html
+Allow: /
