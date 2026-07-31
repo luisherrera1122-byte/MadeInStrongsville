@@ -654,3 +654,43 @@ html, body{ overflow-x:hidden; max-width:100%; }
 }
 
 .poll-voters{ font-size:11.5px; color:var(--muted); margin-top:6px; line-height:1.5; }
+
+/* ---------- DRAFT ORDER CHALLENGE (Draft Day Info page) ---------- */
+.challenge-group{
+  background:linear-gradient(160deg,var(--navy-2),var(--navy-3) 150%);
+  border:1px solid var(--navy-line); border-radius:var(--radius);
+  margin-bottom:14px; overflow:hidden;
+}
+.challenge-group-head{
+  width:100%; display:flex; align-items:center; gap:16px;
+  background:none; border:none; cursor:pointer; padding:18px 22px; text-align:left; color:var(--ink);
+}
+.challenge-badge{
+  width:44px; height:44px; border-radius:10px; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+  background:var(--navy-3); border:1px solid var(--navy-line);
+  font-family:'Oswald',sans-serif; font-weight:700; font-size:13px; color:var(--gold);
+}
+.challenge-badge.upcoming{ color:var(--muted); }
+.challenge-group-title{ flex:1; }
+.challenge-group-title h3{ font-size:17px; text-transform:none; letter-spacing:0; margin:0; }
+.challenge-group-title span{ font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--muted); }
+.challenge-status-tag{
+  font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase;
+  padding:4px 10px; border-radius:999px; flex-shrink:0;
+}
+.challenge-status-tag.complete{ background:rgba(124,211,154,0.12); color:#7cd39a; border:1px solid rgba(124,211,154,0.3); }
+.challenge-status-tag.upcoming{ background:rgba(139,147,167,0.1); color:var(--muted); border:1px solid var(--navy-line); }
+.challenge-chevron{ color:var(--gold); transition:transform .3s; flex-shrink:0; }
+.challenge-group.open .challenge-chevron{ transform:rotate(180deg); }
+.challenge-group-body{ display:none; padding:0 22px 22px; }
+.challenge-group.open .challenge-group-body{ display:block; }
+.challenge-empty-row{
+  display:flex; align-items:center; gap:10px; color:var(--muted); font-size:14px;
+  padding:16px; background:var(--navy); border:1px dashed var(--navy-line); border-radius:8px;
+}
+.challenge-empty-row i{ color:var(--gold); opacity:0.6; }
+@media (max-width:600px){
+  .challenge-group-head{ padding:14px 16px; gap:12px; }
+  .challenge-badge{ width:36px; height:36px; font-size:11px; }
+}

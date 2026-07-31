@@ -208,3 +208,43 @@ const CHUGS = [
     { title:"Vargas Chug 3", id:"_ke6m0kl39k" },
   ]},
 ];
+
+// Draft Order Challenge — off-season competition that sets draft position.
+const DRAFT_STANDINGS = [
+  ["Steve Boden",30], ["Ramy Najm",24], ["Gurpinder Deol",23], ["Mike Lewis",22],
+  ["Matt Krause",21], ["Andrew Vargas",21], ["Luis Herrera",20], ["Stin Wirtz",20],
+  ["Matt Chandler",17], ["Andrew Brooks",17], ["Don Ricardo",15], ["Eric Arnold",14],
+];
+
+const CHALLENGES = [
+  { name:"Challenge 1", type:"NFL Playoff Brackets", status:"complete", results:[
+    ["Steve Boden",7],["Mike Lewis",6],["Matt Chandler",6],["Matt Krause",5],["Stin Wirtz",5],
+    ["Gurpinder Deol",4],["Ramy Najm",4],["Luis Herrera",3],["Andrew Brooks",3],["Don Ricardo",2],
+    ["Eric Arnold",2],["Andrew Vargas",1],
+  ]},
+  { name:"Challenge 2", type:"March Madness", status:"complete", results:[
+    ["Steve Boden",7],["Gurpinder Deol",6],["Ramy Najm",6],["Matt Krause",5],["Don Ricardo",5],
+    ["Luis Herrera",4],["Stin Wirtz",4],["Mike Lewis",3],["Matt Chandler",3],["Andrew Vargas",2],
+    ["Eric Arnold",2],["Andrew Brooks",1],
+  ]},
+  { name:"Challenge 3", type:"Masters Golf", status:"complete", results:[
+    ["Gurpinder Deol",7],["Andrew Vargas",6],["Steve Boden",6],["Luis Herrera",5],["Andrew Brooks",5],
+    ["Eric Arnold",4],["Ramy Najm",4],["Stin Wirtz",3],["Mike Lewis",3],["Matt Krause",3],
+    ["Matt Chandler",2],["Don Ricardo",1],
+  ]},
+  { name:"Challenge 4", type:"NBA Bracket Challenge", status:"complete", results:[
+    ["Andrew Vargas",7],["Don Ricardo",6],["Ramy Najm",6],["Andrew Brooks",5],["Luis Herrera",5],
+    ["Matt Chandler",4],["Steve Boden",4],["Matt Krause",3],["Mike Lewis",3],["Stin Wirtz",2],
+    ["Eric Arnold",2],["Gurpinder Deol",1],
+  ]},
+  { name:"Challenge 5", type:"World Cup Brackets", status:"complete", results:[
+    ["Mike Lewis",7],["Stin Wirtz",6],["Steve Boden",6],["Matt Krause",5],["Andrew Vargas",5],
+    ["Gurpinder Deol",4],["Eric Arnold",4],["Ramy Najm",4],["Luis Herrera",3],["Andrew Brooks",3],
+    ["Matt Chandler",2],["Don Ricardo",1],
+  ]},
+  { name:"Challenge 6", type:"Kentucky Derby", status:"upcoming", results:[] },
+  { name:"Challenge 8", type:"Horse Race", status:"upcoming", results:[] },
+  { name:"Challenge 9", type:"Marble Race", status:"upcoming", results:[] },
+  { name:"Challenge 10", type:"Super Smash Bros (Randomized)", status:"upcoming", results:[] },
+  { name:"Challenge 10", type:"Beer Olympics (Semi-Skill)", status:"upcoming", results:[] },
+];

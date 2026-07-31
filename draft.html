@@ -13,9 +13,9 @@
 
 <nav class="site-nav">
   <div class="wrap">
-    <a href="index.html" class="brand"><i class="fa-solid fa-shield-halved"></i>MADE IN <span>STRONGSVILLE</span></a>
+    <a href="home.html" class="brand"><i class="fa-solid fa-shield-halved"></i>MADE IN <span>STRONGSVILLE</span></a>
     <ul class="navlinks">
-      <li><a href="index.html"><i class="fa-solid fa-house"></i>Home</a></li>
+      <li><a href="home.html"><i class="fa-solid fa-house"></i>Home</a></li>
       <li><a href="draft.html" class="active"><i class="fa-solid fa-calendar-days"></i>Draft Day Info</a></li>
       <li><a href="members.html"><i class="fa-solid fa-users"></i>League Members</a></li>
       <li><a href="hall-of-fame.html"><i class="fa-solid fa-trophy"></i>Hall of Fame</a></li>
@@ -139,6 +139,27 @@
   </div>
 </section>
 
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Off-Season Competition</div>
+      <h2>Draft Order Challenge</h2>
+      <p>All year, the league competes across a series of challenges to set draft position. Best point total picks first.</p>
+    </div>
+
+    <div class="panel reveal" style="max-width:500px; margin:0 auto 40px;">
+      <div class="eyebrow" style="margin-bottom:16px;">Current Standings</div>
+      <table class="leaderboard" id="draftStandings"></table>
+    </div>
+
+    <div class="section-head reveal" style="margin-bottom:28px;">
+      <div class="eyebrow">Challenge Breakdown</div>
+      <h3 style="font-family:'Oswald',sans-serif; text-transform:uppercase; font-size:20px; margin-top:10px;">Every Challenge, Placement By Placement</h3>
+    </div>
+    <div id="challengeGroups" style="max-width:700px; margin:0 auto;"></div>
+  </div>
+</section>
+
 <footer>
   <span class="brand"><i class="fa-solid fa-shield-halved"></i>&nbsp;MADE IN STRONGSVILLE</span>
   Built by the league, for the league. · MadeInStrongsville.com
@@ -149,9 +170,55 @@
   </div>
 </footer>
 
+<script src="data.js"></script>
 <script src="script.js"></script>
 <script>
   buildCountdown('#countdown', new Date('2026-08-20T09:00:00'));
+
+  // Current standings leaderboard
+  const standingsEl = document.getElementById('draftStandings');
+  standingsEl.innerHTML = `<tbody>${DRAFT_STANDINGS.map((r,i)=>`
+    <tr>
+      <td class="rank"><span class="medal">${i+1}</span></td>
+      <td>${r[0]}</td>
+      <td class="num">${r[1]} pts</td>
+    </tr>`).join('')}</tbody>`;
+
+  // Challenge-by-challenge accordion
+  const groupsEl = document.getElementById('challengeGroups');
+  CHALLENGES.forEach((c, idx)=>{
+    const section = document.createElement('div');
+    section.className = 'challenge-group reveal';
+    const bodyContent = c.results.length
+      ? `<table class="leaderboard"><tbody>${c.results.map((r,i)=>`
+          <tr>
+            <td class="rank"><span class="medal">${i+1}</span></td>
+            <td>${r[0]}</td>
+            <td class="num">${r[1]} pts</td>
+          </tr>`).join('')}</tbody></table>`
+      : `<div class="challenge-empty-row"><i class="fa-solid fa-hourglass-half"></i> Not yet played — results post here once it happens.</div>`;
+    section.innerHTML = `
+      <button class="challenge-group-head" aria-expanded="false">
+        <div class="challenge-badge ${c.status}">${c.name.replace('Challenge ','C')}</div>
+        <div class="challenge-group-title">
+          <h3>${c.type}</h3>
+          <span>${c.name}</span>
+        </div>
+        <div class="challenge-status-tag ${c.status}">${c.status === 'complete' ? 'Complete' : 'Upcoming'}</div>
+        <i class="fa-solid fa-chevron-down challenge-chevron"></i>
+      </button>
+      <div class="challenge-group-body">${bodyContent}</div>
+    `;
+    const head = section.querySelector('.challenge-group-head');
+    head.addEventListener('click', ()=>{
+      const open = section.classList.toggle('open');
+      head.setAttribute('aria-expanded', open);
+    });
+    groupsEl.appendChild(section);
+  });
+  // open the first (most recent) challenge by default
+  const firstChallenge = groupsEl.querySelector('.challenge-group');
+  if(firstChallenge){ firstChallenge.classList.add('open'); firstChallenge.querySelector('.challenge-group-head').setAttribute('aria-expanded','true'); }
 </script>
 </body>
 </html>
