@@ -110,6 +110,35 @@ const LB_SACKOS = [
   ["Don Ricardo","1"],
 ];
 
+const LB_WEEKLY_HIGH = [
+  ["Luis Herrera","204.48"],
+  ["Matt Krause","178.00"],
+  ["Mike Lewis","174.10"],
+  ["Eric Arnold","169.78"],
+  ["Mike Lewis","169.58"],
+];
+const LB_WEEKLY_LOW = [
+  ["Andrew Brooks","37.44"],
+  ["Stin Wirtz","41.04"],
+  ["Andrew Brooks","42.02"],
+  ["Don Ricardo","43.96"],
+  ["Don Ricardo","46.24"],
+];
+const LB_SEASON_BEST = [
+  ["Gurpinder Deol","12-1"],
+  ["Stin Wirtz","12-1"],
+  ["Don Ricardo","11-2"],
+  ["Andrew Vargas","11-2"],
+  ["Andrew Vargas","11-2"],
+];
+const LB_SEASON_WORST = [
+  ["Don Ricardo","1-12"],
+  ["Eric Arnold","3-11"],
+  ["Don Ricardo","4-10"],
+  ["Mike Lewis","4-10"],
+  ["Stin Wirtz","4-10"],
+];
+
 // Polls — category: "League Rules" | "Draft" | "General"
 const POLLS = [
   { q:"Should we remove one of the two flex spots?", cat:"League Rules",

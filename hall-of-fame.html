@@ -80,6 +80,39 @@
 <section style="background:var(--navy-2); border-top:1px solid var(--navy-line);">
   <div class="wrap">
     <div class="section-head reveal">
+      <div class="eyebrow">Single-Week &amp; Single-Season Extremes</div>
+      <h2>Peaks &amp; Valleys</h2>
+      <p>The best and worst a team has ever looked — in one week, and across one full season.</p>
+    </div>
+    <div class="lb-grid">
+
+      <div class="panel reveal">
+        <div class="eyebrow" style="margin-bottom:16px;">Top 5 Single-Week Scores</div>
+        <table class="leaderboard" id="lbWeeklyHigh"></table>
+      </div>
+
+      <div class="panel reveal" style="border-color:rgba(179,39,59,0.35);">
+        <div class="eyebrow" style="margin-bottom:16px; color:#e08a95;">Bottom 5 Single-Week Scores</div>
+        <table class="leaderboard" id="lbWeeklyLow"></table>
+      </div>
+
+      <div class="panel reveal">
+        <div class="eyebrow" style="margin-bottom:16px;">Top 5 Single-Season Records</div>
+        <table class="leaderboard" id="lbSeasonBest"></table>
+      </div>
+
+      <div class="panel reveal" style="border-color:rgba(179,39,59,0.35);">
+        <div class="eyebrow" style="margin-bottom:16px; color:#e08a95;">Bottom 5 Single-Season Records</div>
+        <table class="leaderboard" id="lbSeasonWorst"></table>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--navy-2); border-top:1px solid var(--navy-line);">
+  <div class="wrap">
+    <div class="section-head reveal">
       <div class="eyebrow">Season by Season</div>
       <h2>The Full History</h2>
     </div>
@@ -113,6 +146,10 @@ fillTable('lbWinpct', LB_WINPCT, 3);
 fillTable('lbWins', LB_WINS, 2);
 fillTable('lbTop6', LB_TOP6, 2);
 fillTable('lbSackos', LB_SACKOS, 2);
+fillTable('lbWeeklyHigh', LB_WEEKLY_HIGH, 2);
+fillTable('lbWeeklyLow', LB_WEEKLY_LOW, 2);
+fillTable('lbSeasonBest', LB_SEASON_BEST, 2);
+fillTable('lbSeasonWorst', LB_SEASON_WORST, 2);
 
 const tl = document.getElementById('tlList');
 TIMELINE.forEach(([year,desc])=>{
