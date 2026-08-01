@@ -251,6 +251,8 @@ table.leaderboard tbody tr:hover{ background:rgba(201,162,75,0.06); }
 .mcard .story{ max-height:0; overflow:hidden; transition:max-height .4s ease; }
 .mcard.open .story{ max-height:1400px; }
 .mcard .story-inner{ padding:4px 24px 24px; color:#c7cbd6; font-size:14px; border-top:1px solid var(--navy-line); margin-top:2px; padding-top:16px; }
+.mcard .story-inner p{ margin:0 0 14px; }
+.mcard .story-inner p:last-child{ margin-bottom:0; }
 .mcard .expand-cue{ padding:0 24px 20px; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--accent,var(--gold)); letter-spacing:0.08em; display:flex; align-items:center; gap:6px; }
 
 /* ---------- COUNTDOWN (scoreboard LED) ---------- */
