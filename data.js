@@ -141,6 +141,13 @@ const LB_SEASON_WORST = [
 
 // Polls — category: "League Rules" | "Draft" | "General"
 const POLLS = [
+  { q:"Should we add kickers back?", cat:"League Rules",
+    date:"Closed Aug 4, 2026", status:"closed", initiatedBy:"Luis Herrera",
+    note:"Closed early: changing a rule requires 8 votes. With 6 votes already in to reject, yes can't mathematically reach 8 — the outcome is decided regardless of how the remaining votes fall.",
+    options:[
+      ["No, keep kickers out", 67, ["Stin Wirtz","Matt Krause","Andrew Brooks","Gurpinder Deol","Matt Chandler","Steve Boden"]],
+      ["Yes, add kickers back", 33, ["Mike Lewis","Eric Arnold","Luis Herrera"]],
+    ] },
   { q:"Should we remove one of the two flex spots?", cat:"League Rules",
     date:"Closed Jul 18, 2026", status:"closed", initiatedBy:"Steve Boden",
     options:[

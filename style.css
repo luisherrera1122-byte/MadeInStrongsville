@@ -704,3 +704,11 @@ html, body{ overflow-x:hidden; max-width:100%; }
 }
 .sacko-list li:last-child{ border-bottom:none; }
 .sacko-list li i{ color:var(--gold); width:16px; text-align:center; flex-shrink:0; }
+
+.poll-note{
+  display:flex; gap:8px; align-items:flex-start;
+  margin-top:16px; padding:12px 14px; background:rgba(201,162,75,0.06);
+  border:1px solid rgba(201,162,75,0.2); border-radius:8px;
+  font-size:12.5px; color:var(--muted); line-height:1.5;
+}
+.poll-note i{ color:var(--gold); margin-top:2px; flex-shrink:0; }
