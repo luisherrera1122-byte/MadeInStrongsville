@@ -70,6 +70,17 @@
   }
   .whisper.in{ opacity:1; }
 
+  .commish{ margin:44px auto 0; max-width:520px; }
+  .commish .label{
+    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.24em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:14px;
+  }
+  .commish .frame{
+    aspect-ratio:16/9; border-radius:10px; overflow:hidden;
+    border:1px solid var(--line); box-shadow:0 20px 50px -20px rgba(0,0,0,0.7);
+  }
+  .commish .frame iframe{ width:100%; height:100%; border:0; display:block; }
+
   footer.locked{
     position:fixed; bottom:22px; left:0; right:0; text-align:center;
     font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase;
@@ -89,6 +100,13 @@
   <div class="date-line">Access opens <strong>August 14, 2026</strong></div>
 
   <div class="whisper" id="whisper"></div>
+
+  <div class="commish">
+    <div class="label"><i class="fa-solid fa-video"></i> A Note From The Commissioner</div>
+    <div class="frame">
+      <iframe src="https://www.youtube.com/embed/ub5VCanUkYw" title="Commish Note 2026" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
 </div>
 
 <footer class="locked"><i class="fa-solid fa-lock" style="margin-right:6px;"></i>Locked until reveal day</footer>
