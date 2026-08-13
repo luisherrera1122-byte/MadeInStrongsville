@@ -200,6 +200,8 @@ const CHUGS = [
   { member:"Luis Herrera", img:"photo-luis.jpg", videos:[
     { title:"Luis Chug 1", id:"HjMJJuRSxi0" },
     { title:"Luis Chug 2", id:"Med66Oc5rnE" },
+    { title:"Luis Chug 3", id:"cQDt6ceflus" },
+    { title:"Luis Chug 4", id:"sttdk_kggxo" },
   ]},
   { member:"Mike Lewis", img:"photo-mike.jpg", videos:[
     { title:"Mike Chug 1", id:"22IfdO215qs" },
