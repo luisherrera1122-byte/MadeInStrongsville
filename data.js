@@ -269,3 +269,23 @@ const CHALLENGES = [
   { name:"Challenge 10", type:"Super Smash Bros (Randomized)", status:"upcoming", results:[] },
   { name:"Challenge 10", type:"Beer Olympics (Semi-Skill)", status:"upcoming", results:[] },
 ];
+
+// Draft Day photo history — one entry per year. img:null means no photo on
+// record; the "quote" is what displays in the placeholder frame instead.
+const DRAFT_PHOTOS = [
+  { year:2011, img:null, quote:"Year one. Everyone was focused on the draft board, not the camera roll." },
+  { year:2012, img:null, quote:"Somewhere, a photo of this draft exists. It has never been found." },
+  { year:2013, img:null, quote:"The photo was taken. The phone that took it was not as lucky." },
+  { year:2014, img:"photo-draft-2014.jpg" },
+  { year:2015, img:null, quote:"Vargas was too busy staging his worst-to-first miracle to remember the camera." },
+  { year:2016, img:"photo-draft-2016.jpg" },
+  { year:2017, img:"photo-draft-2017.jpg" },
+  { year:2018, img:"photo-draft-2018.jpg" },
+  { year:2019, img:"photo-draft-2019.jpg" },
+  { year:2020, img:"photo-draft-2020.jpg" },
+  { year:2021, img:"photo-draft-2021.jpg" },
+  { year:2022, img:"photo-draft-2022.jpg" },
+  { year:2023, img:"photo-draft-2023.jpg" },
+  { year:2024, img:"photo-draft-2024.jpg" },
+  { year:2025, img:"photo-draft-2025.jpg" },
+];

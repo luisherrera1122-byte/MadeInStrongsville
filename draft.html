@@ -161,6 +161,17 @@
   </div>
 </section>
 
+<section style="background:var(--navy-2); border-top:1px solid var(--navy-line);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">The Archive</div>
+      <h2>Draft Day Through The Years</h2>
+      <p>Every draft since 2011 — the ones we remembered to photograph, anyway.</p>
+    </div>
+    <div class="draft-photo-grid" id="draftPhotoGrid"></div>
+  </div>
+</section>
+
 <footer>
   <span class="brand"><i class="fa-solid fa-shield-halved"></i>&nbsp;MADE IN STRONGSVILLE</span>
   Built by the league, for the league. · MadeInStrongsville.com
@@ -220,6 +231,25 @@
   // open the first (most recent) challenge by default
   const firstChallenge = groupsEl.querySelector('.challenge-group');
   if(firstChallenge){ firstChallenge.classList.add('open'); firstChallenge.querySelector('.challenge-group-head').setAttribute('aria-expanded','true'); }
+
+  // Draft photo history
+  const photoGrid = document.getElementById('draftPhotoGrid');
+  DRAFT_PHOTOS.forEach(p=>{
+    if(p.img){
+      const a = document.createElement('a');
+      a.className = 'draft-photo-card reveal';
+      a.href = p.img;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.innerHTML = `<span class="draft-photo-year">${p.year}</span><img src="${p.img}" alt="${p.year} draft" loading="lazy">`;
+      photoGrid.appendChild(a);
+    } else {
+      const div = document.createElement('div');
+      div.className = 'draft-photo-empty reveal';
+      div.innerHTML = `<span class="draft-photo-year" style="position:static;">${p.year}</span><i class="fa-solid fa-image"></i><div class="quote">${p.quote}</div>`;
+      photoGrid.appendChild(div);
+    }
+  });
 </script>
 </body>
 </html>
