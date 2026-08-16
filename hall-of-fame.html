@@ -154,7 +154,7 @@ fillTable('lbSeasonWorst', LB_SEASON_WORST, 2);
 const tl = document.getElementById('tlList');
 TIMELINE.forEach(([year,desc])=>{
   const row = document.createElement('div');
-  row.className = 'reveal';
+  row.className = 'reveal in';
   row.style.cssText = 'display:flex; gap:24px; padding:18px 0; border-bottom:1px solid var(--navy-line);';
   row.innerHTML = `<div class="mono" style="color:var(--gold); min-width:52px; font-size:15px;">${year}</div><div style="color:#c7cbd6; font-size:14.5px;">${desc}</div>`;
   tl.appendChild(row);
