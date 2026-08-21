@@ -232,9 +232,9 @@ const CHUGS = [
 
 // Draft Order Challenge — off-season competition that sets draft position.
 const DRAFT_STANDINGS = [
-  ["Steve Boden",30], ["Ramy Najm",24], ["Gurpinder Deol",23], ["Mike Lewis",22],
-  ["Matt Krause",21], ["Andrew Vargas",21], ["Luis Herrera",20], ["Stin Wirtz",20],
-  ["Matt Chandler",17], ["Andrew Brooks",17], ["Don Ricardo",15], ["Eric Arnold",14],
+  ["Steve Boden",46], ["Ramy Najm",38], ["Gurpinder Deol",36], ["Matt Krause",36],
+  ["Mike Lewis",34], ["Luis Herrera",32], ["Stin Wirtz",32], ["Don Ricardo",30],
+  ["Eric Arnold",28], ["Andrew Vargas",27], ["Matt Chandler",26], ["Andrew Brooks",24],
 ];
 
 const CHALLENGES = [
@@ -264,9 +264,18 @@ const CHALLENGES = [
     ["Matt Chandler",2],["Don Ricardo",1],
   ]},
   { name:"Challenge 6", type:"Kentucky Derby", status:"upcoming", results:[] },
-  { name:"Challenge 8", type:"Horse Race", status:"upcoming", results:[] },
-  { name:"Challenge 9", type:"Marble Race", status:"upcoming", results:[] },
-  { name:"Challenge 10", type:"Super Smash Bros (Randomized)", status:"upcoming", results:[] },
+  { name:"Challenge 8", type:"Horse Race", status:"complete", results:[
+    ["Eric Arnold",7],["Steve Boden",6],["Mike Lewis",6],["Stin Wirtz",5],["Ramy Najm",5],["Luis Herrera",5],
+    ["Matt Krause",4],["Gurpinder Deol",3],["Don Ricardo",3],["Matt Chandler",2],["Andrew Vargas",2],["Andrew Brooks",2],
+  ]},
+  { name:"Challenge 9", type:"Marble Race", status:"complete", results:[
+    ["Ramy Najm",7],["Matt Krause",6],["Don Ricardo",6],["Gurpinder Deol",5],["Luis Herrera",5],["Andrew Vargas",4],
+    ["Eric Arnold",4],["Steve Boden",3],["Andrew Brooks",3],["Mike Lewis",2],["Stin Wirtz",2],["Matt Chandler",1],
+  ]},
+  { name:"Challenge 10", type:"Super Smash Bros (Randomized)", status:"complete", results:[
+    ["Steve Boden",7],["Don Ricardo",6],["Matt Chandler",6],["Stin Wirtz",5],["Gurpinder Deol",5],["Matt Krause",5],
+    ["Mike Lewis",4],["Drew",3],["Eric Arnold",3],["Ramy Najm",2],["Andrew Brooks",2],["Luis Herrera",2],
+  ]},
   { name:"Challenge 10", type:"Beer Olympics (Semi-Skill)", status:"upcoming", results:[] },
 ];
 
