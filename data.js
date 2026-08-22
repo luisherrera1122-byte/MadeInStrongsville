@@ -234,7 +234,7 @@ const CHUGS = [
 const DRAFT_STANDINGS = [
   ["Steve Boden",46], ["Ramy Najm",38], ["Gurpinder Deol",36], ["Matt Krause",36],
   ["Mike Lewis",34], ["Luis Herrera",32], ["Stin Wirtz",32], ["Don Ricardo",30],
-  ["Eric Arnold",28], ["Andrew Vargas",27], ["Matt Chandler",26], ["Andrew Brooks",24],
+  ["Andrew Vargas",30], ["Eric Arnold",28], ["Matt Chandler",26], ["Andrew Brooks",24],
 ];
 
 const CHALLENGES = [
@@ -274,7 +274,7 @@ const CHALLENGES = [
   ]},
   { name:"Challenge 10", type:"Super Smash Bros (Randomized)", status:"complete", results:[
     ["Steve Boden",7],["Don Ricardo",6],["Matt Chandler",6],["Stin Wirtz",5],["Gurpinder Deol",5],["Matt Krause",5],
-    ["Mike Lewis",4],["Drew",3],["Eric Arnold",3],["Ramy Najm",2],["Andrew Brooks",2],["Luis Herrera",2],
+    ["Mike Lewis",4],["Andrew Vargas",3],["Eric Arnold",3],["Ramy Najm",2],["Andrew Brooks",2],["Luis Herrera",2],
   ]},
   { name:"Challenge 10", type:"Beer Olympics (Semi-Skill)", status:"upcoming", results:[] },
 ];
